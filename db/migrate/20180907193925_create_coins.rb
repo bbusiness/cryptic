@@ -4,6 +4,7 @@ class CreateCoins < ActiveRecord::Migration[5.2]
       t.string :symbol
       t.string :name
       t.text :description
+      t.decimal :amount
       t.decimal :value
 
       t.timestamps

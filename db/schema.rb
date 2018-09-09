@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_193925) do
+ActiveRecord::Schema.define(version: 2018_09_08_151105) do
 
   create_table "coins", force: :cascade do |t|
     t.string "symbol"
     t.string "name"
     t.text "description"
+    t.decimal "amount"
     t.decimal "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "current_price"
+    t.boolean "is_crypto?", default: true
+    t.string "type"
+  end
+
+  create_table "high_scores", force: :cascade do |t|
+    t.string "game"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

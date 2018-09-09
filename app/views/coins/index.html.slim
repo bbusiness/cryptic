@@ -1,0 +1,15 @@
+table.table.table-hover
+  thead
+    tr
+      th symbol
+      th name
+      th amount owned
+      th current price
+
+  tbody
+    - @coins.each do |c|
+      tr
+        td = c.symbol
+        td = c.name
+        td = c.amount
+        td = c.current_price

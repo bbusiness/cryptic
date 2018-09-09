@@ -1,0 +1,4 @@
+class Fiat < Coin
+
+
+end
