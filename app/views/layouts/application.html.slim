@@ -28,8 +28,9 @@ html lang="en"
           a.navbar-brand href="#"Cryptic
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "Coins", "/coins"
-              li= link_to "Wallets", "/wallets"
+              li= link_to "Coins", coins_path
+              li= link_to "Wallets", wallets_path
+              li= link_to "Categories", accounting_categories_path
 
     .container
       .row
@@ -41,8 +42,8 @@ html lang="en"
             h3 Sidebar
             ul.nav.nav-list
               li.nav-header Sidebar
-              li= link_to "Coins", "/coins"
-              li= link_to "Wallets", "/wallets"
+              li= link_to "Coins", coins_path
+              li= link_to "Wallets", wallets_path
 
       footer
         p &copy; Company 2018
