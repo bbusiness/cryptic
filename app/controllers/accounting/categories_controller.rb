@@ -5,7 +5,8 @@ class Accounting::CategoriesController < ApplicationController
   def show; end
 
   def new
-    @accounting_category = Accounting::Category.new
+
+    @accounting_category = Accounting::Category.new(ancestry: params[:parent_id])
   end
 
   def edit
@@ -17,7 +18,10 @@ class Accounting::CategoriesController < ApplicationController
   end
 
   def create
+    accounting_category_params[:ancestry]= nil if accounting_category_params[:ancestry].empty?
+
     @accounting_category = Accounting::Category.new(accounting_category_params)
+    puts @accounting_category.inspect
     respond_to do |format|
       if @accounting_category.save
         format.html { redirect_to @accounting_category, notice: "Succes!"}
