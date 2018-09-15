@@ -1,7 +1,11 @@
 p#notice = notice
 
-=> link_to "nieuwe subcategory", new_accounting_category_path(parent_id: @accounting_category.id)
+= render 'categories'
 
-=> link_to 'Edit', edit_accounting_category_path(@accounting_category)
+=> link_to "nieuwe subcategory", new_accounting_category_path(parent_id: @accounting_category.id)
 '|
-=< link_to 'Back', accounting_categories_path
+=> link_to 'Bewerken', edit_accounting_category_path(@accounting_category)
+'|
+=> link_to 'destroy', @accounting_category, data: {confirm: 'are you sure?'}, method: :delete
+'|
+=< link_to 'Terug', accounting_categories_path

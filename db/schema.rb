@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_224433) do
+ActiveRecord::Schema.define(version: 2018_09_15_182853) do
 
   create_table "accounting_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+    t.string "number"
     t.index ["ancestry"], name: "index_accounting_categories_on_ancestry"
   end
 
