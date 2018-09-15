@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :accounting do
     resources :categories
+    resources :subcategories
   end
 
   get 'home/index'

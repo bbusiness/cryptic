@@ -1,11 +1,18 @@
 class Accounting::CategoriesController < ApplicationController
   before_action :set_accounting_category, only: [:show, :edit, :update, :destroy]
-  def index; @accounting_categories = Accounting::Category.all end
+  def index
+    @accounting_categories = Accounting::Category.all.where(ancestry: nil)
+    @rootdepth = 0
+  end
 
-  def show; end
+  def show;
+    @accounting_categories = [@accounting_category]
+    @rootdepth = @accounting_category.depth
+  end
 
   def new
-    @accounting_category = Accounting::Category.new
+
+    @accounting_category = Accounting::Category.new(ancestry: params[:parent_id])
   end
 
   def edit
@@ -18,6 +25,7 @@ class Accounting::CategoriesController < ApplicationController
 
   def create
     @accounting_category = Accounting::Category.new(accounting_category_params)
+
     respond_to do |format|
       if @accounting_category.save
         format.html { redirect_to @accounting_category, notice: "Succes!"}
@@ -27,6 +35,7 @@ class Accounting::CategoriesController < ApplicationController
         format.json {render json: @accounting_category.errors, status: :unprocessable_entity}
       end
     end
+
   end
 
   def update

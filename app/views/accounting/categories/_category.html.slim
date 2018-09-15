@@ -1,0 +1,5 @@
+tr class=("category_depth_#{ac.depth-depth}")
+  td.number = ac.number
+  td.name class=("nested-category-name") = link_to ac.name, ac
+
+=nested_categories(sub_categories) if sub_categories

@@ -14,7 +14,7 @@ class Coin < ApplicationRecord
   private
 
   def convert_to_dollar
-    Cryptocompare::Price.find(symbol, "USD")[symbol]["USD"]
+    Cryptocompare::Price.find(symbol, "USDT")[symbol]["USDT"]
   end
 
   def time_to_last_update
